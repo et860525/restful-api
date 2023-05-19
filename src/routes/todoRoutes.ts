@@ -1,16 +1,14 @@
-import { Router, Request, Response, NextFunction } from 'express';
+import express from 'express';
 import TodoController from '../controllers/todoController';
 
-const router = Router();
+const router = express.Router();
 const todoController = new TodoController();
 
-router.route('/todos').get(async (req: Request, res: Response) => {
-  const todos = await todoController.todo_list(req);
-  res.json(todos);
-});
+router
+  .route('/todos')
+  .get(todoController.todo_list)
+  .post(todoController.create_todo);
 
-router.route('/todos/:id').get((req: Request, res: Response) => {
-  res.json({ message: 'A todo' });
-});
+router.route('/todos/:id').get(todoController.find_todo);
 
 export default router;

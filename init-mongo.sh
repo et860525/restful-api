@@ -15,4 +15,4 @@ db.createUser({
 
 EOF
 
-mongoimport --db restful-api --collection todo --jsonArray --file /data/data.json -u root -p root123 --authenticationDatabase=admin
+mongoimport --db restful-api --collection todos --jsonArray --file /data/data.json -u root -p root123 --authenticationDatabase=admin

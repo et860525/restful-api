@@ -16,8 +16,15 @@
    # or
    pnpm install
    ```
-3. `docker compose up -d`
-4. Run server
+3. Add a `.env` file into root
+   ```env
+   PORT=3000
+   MONGODB_USERNAME=todoUser
+   MONGODB_PASSWORD=todo123
+   MONGODB_DATABASE=restful-api
+   ```
+4. `docker compose up -d`
+5. Run server
    ```bash
    npm run dev
    # or
