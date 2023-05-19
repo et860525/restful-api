@@ -21,6 +21,13 @@ connect_db();
 import todoRouter from './routes/todoRoutes';
 app.use('/', todoRouter);
 
+// Unknown Routes
+app.all('*', (req: Request, res: Response, next: NextFunction) => {
+  const err = new Error(`Route ${req.originalUrl} not found`) as any;
+  err.statusCode = 404;
+  next(err);
+});
+
 // Error message
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   err.status = err.status || 'error';

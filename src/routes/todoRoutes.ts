@@ -9,6 +9,10 @@ router
   .get(todoController.todo_list)
   .post(todoController.create_todo);
 
-router.route('/todos/:id').get(todoController.find_todo);
+router
+  .route('/todos/:id')
+  .get(todoController.find_todo)
+  .patch(todoController.update_todo)
+  .delete(todoController.delete_todo);
 
 export default router;
